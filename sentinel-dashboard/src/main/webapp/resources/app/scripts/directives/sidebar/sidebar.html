@@ -62,8 +62,12 @@
               <i class="glyphicon glyphicon-filter"></i>&nbsp;&nbsp;流控规则</a>
           </li>
 
+<!--          <li ui-sref-active="active">-->
+<!--            <a ui-sref="dashboard.degrade({app: entry.app})">-->
+<!--              <i class="glyphicon glyphicon-flash"></i>&nbsp;&nbsp;熔断规则</a>-->
+<!--          </li>-->
           <li ui-sref-active="active">
-            <a ui-sref="dashboard.degrade({app: entry.app})">
+            <a ui-sref="dashboard.degradeV2({app: entry.app})">
               <i class="glyphicon glyphicon-flash"></i>&nbsp;&nbsp;熔断规则</a>
           </li>
           <li ui-sref-active="active" ng-if="!entry.isGateway">

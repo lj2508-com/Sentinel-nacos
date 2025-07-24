@@ -199,4 +199,24 @@ public class DegradeRuleEntity implements RuleEntity {
 
         return rule;
     }
+
+    @Override
+    public String toString() {
+        return "DegradeRuleEntity{" +
+                "id=" + id +
+                ", app='" + app + '\'' +
+                ", ip='" + ip + '\'' +
+                ", port=" + port +
+                ", resource='" + resource + '\'' +
+                ", limitApp='" + limitApp + '\'' +
+                ", count=" + count +
+                ", timeWindow=" + timeWindow +
+                ", grade=" + grade +
+                ", minRequestAmount=" + minRequestAmount +
+                ", slowRatioThreshold=" + slowRatioThreshold +
+                ", statIntervalMs=" + statIntervalMs +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
+                '}';
+    }
 }

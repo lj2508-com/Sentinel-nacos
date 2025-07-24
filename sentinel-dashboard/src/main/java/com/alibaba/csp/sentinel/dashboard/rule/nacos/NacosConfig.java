@@ -18,6 +18,7 @@ package com.alibaba.csp.sentinel.dashboard.rule.nacos;
 import java.util.List;
 import java.util.Properties;
 
+import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.DegradeRuleEntity;
 import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.FlowRuleEntity;
 import com.alibaba.csp.sentinel.datasource.Converter;
 import com.alibaba.fastjson.JSON;
@@ -46,6 +47,24 @@ public class NacosConfig {
     @Bean
     public Converter<String, List<FlowRuleEntity>> flowRuleEntityDecoder() {
         return s -> JSON.parseArray(s, FlowRuleEntity.class);
+    }
+
+    /**
+     * 为 DegradeRuleNacosPublisher 提供服务
+     * 将熔断规则列表（List<DegradeRuleEntity>）编码为 JSON 字符串
+     */
+    @Bean
+    public Converter<List<DegradeRuleEntity>, String> degradeRuleEntityEncoder() {
+        return JSON::toJSONString;
+    }
+
+    /**
+     * 为 DegradeRuleNacosProvider 提供服务 (这是解决当前错误的关键)
+     * 将 JSON 字符串解码为熔断规则列表（List<DegradeRuleEntity>）
+     */
+    @Bean
+    public Converter<String, List<DegradeRuleEntity>> degradeRuleEntityDecoder() {
+        return s -> JSON.parseArray(s, DegradeRuleEntity.class);
     }
 
     @Bean
