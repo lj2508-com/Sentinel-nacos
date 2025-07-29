@@ -33,6 +33,10 @@ public final class NacosConfigUtil {
     public static final String SYSTEM_DATA_ID_POSTFIX = "-system-rules";
     //授权规则
     public static final String AUTHORITY_DATA_ID_POSTFIX = "-authority-rules";
+    //网关流控
+    public static final String GATEWAY_FLOW_DATA_ID_POSTFIX = "-gateway-flow-rules";
+    //网关api
+    public static final String GATEWAY_API_DATA_ID_POSTFIX = "-gateway-api-definitions";
     public static final String CLUSTER_MAP_DATA_ID_POSTFIX = "-cluster-map";
 
     /**

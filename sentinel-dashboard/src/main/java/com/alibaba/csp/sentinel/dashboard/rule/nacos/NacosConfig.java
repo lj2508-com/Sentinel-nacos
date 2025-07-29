@@ -18,6 +18,8 @@ package com.alibaba.csp.sentinel.dashboard.rule.nacos;
 import java.util.List;
 import java.util.Properties;
 
+import com.alibaba.csp.sentinel.dashboard.datasource.entity.gateway.ApiDefinitionEntity;
+import com.alibaba.csp.sentinel.dashboard.datasource.entity.gateway.GatewayFlowRuleEntity;
 import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.*;
 import com.alibaba.csp.sentinel.datasource.Converter;
 import com.alibaba.fastjson.JSON;
@@ -93,6 +95,26 @@ public class NacosConfig {
     @Bean
     public Converter<String, List<AuthorityRuleEntity>> authorityRuleEntityDecoder() {
         return s -> JSON.parseArray(s, AuthorityRuleEntity.class);
+    }
+
+    @Bean
+    public Converter<List<GatewayFlowRuleEntity>, String> gatewayFlowRuleEntityEncoder() {
+        return JSON::toJSONString;
+    }
+
+    @Bean
+    public Converter<String, List<GatewayFlowRuleEntity>> gatewayFlowRuleEntityDecoder() {
+        return s -> JSON.parseArray(s, GatewayFlowRuleEntity.class);
+    }
+
+    @Bean
+    public Converter<List<ApiDefinitionEntity>, String> gatewayApiEntityEncoder() {
+        return JSON::toJSONString;
+    }
+
+    @Bean
+    public Converter<String, List<ApiDefinitionEntity>> gatewayApiEntityDecoder() {
+        return s -> JSON.parseArray(s, ApiDefinitionEntity.class);
     }
 
     @Bean
